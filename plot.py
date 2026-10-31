@@ -2,13 +2,9 @@ import csv
 import json
 import matplotlib.pyplot as plot
 
-try:
-    with open("data.csv", "r") as f:
-        reader = csv.DictReader(f)
-        data = list(reader)
-except (OSError, csv.Error):
-    print('Warning: Failed to load data.csv.')
-    exit(1)
+from train import open_data
+
+data = open_data()
 
 kms = []
 prices = []

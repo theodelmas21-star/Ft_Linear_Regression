@@ -1,16 +1,20 @@
 import csv
 import json
 
-def train():
-
-    # Load the CSV file into a list of dicts (one dict per row)
+def open_data():
     try:
         with open("data.csv", "r") as f:
             reader = csv.DictReader(f)
             data = list(reader)
     except (OSError, csv.Error):
         print('Warning: Failed to load file.')
-        return
+        exit(1)
+    return data
+
+def train():
+
+    # Load the CSV file into a list of dicts (one dict per row)
+    data = open_data()
 
     # Find the min and max of km and price, needed for min-max normalisation.
     # Initialised with the first row so they are always real values from the data
