@@ -2,9 +2,20 @@ import csv
 import json
 
 from train import open_data
+from price import load_thetas
+
+# PRECISION CALCULATION
+# ------------------------------------------------------------------------------
+# To measure the model's precision, we compare the errors made by our linear 
+# regression against the errors of a baseline model that always guesses the average price.
+# 
+# It's a ratio:
+# - 0% means the model is no better than just using the average.
+# - 100% (or 1) represents a perfect prediction (zero error).
+# The closer the result is to 100%, the better the algorithm performs.
+
 
 data = open_data()
-
 kms = []
 prices = []
 lin_prices = []
@@ -16,12 +27,7 @@ for row in data:
     kms.append(km)
     prices.append(price)
 
-try:
-    with open("thetas.json", "r") as f:
-        thetas = json.load(f)
-except (OSError):
-    print('Warning: Failed to load thetas.json.')
-    exit(1)
+thetas = load_thetas()
 
 theta0 = thetas["theta0"]
 theta1 = thetas["theta1"]

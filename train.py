@@ -1,6 +1,20 @@
 import csv
 import json
 
+# LINEAR REGRESSION TRAINING (Gradient Descent)
+# ------------------------------------------------------------------------------
+# This script trains a linear regression model to predict car prices based 
+# on their mileage using the Gradient Descent optimization algorithm.
+#
+# How it works:
+# 1. Loads and normalizes the dataset to prevent numerical overflows (NaN/inf).
+# 2. Iteratively adjusts the parameters (theta0 and theta1) by minimizing 
+#    the Mean Squared Error (MSE) cost function.
+# 3. Saves the final optimal weights into 'thetas.json'.
+#
+# - theta0: The bias (y-intercept / base price estimated for 0 km).
+# - theta1: The weight/slope (price variation per kilometer driven)
+
 def open_data():
     try:
         with open("data.csv", "r") as f:
@@ -86,5 +100,5 @@ def train():
         print('Warning: Failed write thetas.json .')
         return
 
-
-train()
+if __name__ == "__main__":
+    train()

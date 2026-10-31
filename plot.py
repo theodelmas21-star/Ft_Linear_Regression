@@ -3,6 +3,11 @@ import json
 import matplotlib.pyplot as plot
 
 from train import open_data
+from price import load_thetas
+
+# PLOT
+# ------------------------------------------------------------------------------
+# Show the graph of the linear regression
 
 data = open_data()
 
@@ -16,12 +21,7 @@ for row in data:
     kms.append(km)
     prices.append(price)
 
-try:
-    with open("thetas.json", "r") as f:
-        thetas = json.load(f)
-except (OSError):
-    print('Warning: Failed to load thetas.json.')
-    exit(1)
+thetas = load_thetas()
 
 theta0 = thetas["theta0"]
 theta1 = thetas["theta1"]
