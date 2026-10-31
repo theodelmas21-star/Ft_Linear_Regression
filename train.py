@@ -9,7 +9,7 @@ import json
 # How it works:
 # 1. Loads and normalizes the dataset to prevent numerical overflows (NaN/inf).
 # 2. Iteratively adjusts the parameters (theta0 and theta1) by minimizing 
-#    the Mean Squared Error (MSE) cost function.
+#    the gap.
 # 3. Saves the final optimal weights into 'thetas.json'.
 #
 # - theta0: The bias (y-intercept / base price estimated for 0 km).
