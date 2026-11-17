@@ -30,7 +30,7 @@ $$\text{price} = \theta_0 + (\theta_1 \times \text{mileage})$$
 
 ---
 
-## 🛠️ Features & Architecture
+## Features & Architecture
 
 * **`train.py`**: Implements **Gradient Descent** with feature scaling (Min-Max normalization) to iteratively minimize the gap. It saves the optimal weights ($\theta_0$ and $\theta_1$) into a `thetas.json` file.
 * **`price.py`**: A CLI program that loads the trained weights and estimates the price of a car given its mileage. Includes safety bounds against negative price extrapolations.
